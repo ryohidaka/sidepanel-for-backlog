@@ -1,27 +1,13 @@
-import { ChakraProvider } from "@chakra-ui/react"
-import { useState } from "react"
+import { ChakraProvider, Stack } from "@chakra-ui/react"
+
+import IssueList from "~components/IssueList"
 
 function IndexPopup() {
-  const [data, setData] = useState("")
-
   return (
     <ChakraProvider>
-      <div
-        style={{
-          padding: 16
-        }}>
-        <h2>
-          Welcome to your{" "}
-          <a href="https://www.plasmo.com" target="_blank">
-            Plasmo
-          </a>{" "}
-          Extension!
-        </h2>
-        <input onChange={(e) => setData(e.target.value)} value={data} />
-        <a href="https://docs.plasmo.com" target="_blank">
-          View Docs
-        </a>
-      </div>
+      <Stack w="xs">
+        <IssueList />
+      </Stack>
     </ChakraProvider>
   )
 }
