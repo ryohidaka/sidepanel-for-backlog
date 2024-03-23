@@ -1,6 +1,7 @@
 import { Card, CardBody, Heading, HStack, Stack } from "@chakra-ui/react"
 import type { Issue } from "backlog-js/dist/types/entity"
 
+import DueLabel from "./DueLabel"
 import IssueKey from "./IssueKey"
 import StatusBadge from "./StatusBadge"
 
@@ -27,6 +28,8 @@ function IssueCard({ issue }: Props): JSX.Element {
           </Heading>
 
           <HStack justifyContent="end">
+            {/* 期限日 */}
+            <DueLabel dueDate={issue.dueDate} />
             {/* 状態 */}
             <StatusBadge status={issue.status} />
           </HStack>
