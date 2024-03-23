@@ -1,4 +1,5 @@
-import { Button, Stack } from "@chakra-ui/react"
+import { Stack } from "@chakra-ui/react"
+import { useInView } from "react-intersection-observer"
 
 import { useIssue } from "~hooks/issue"
 import { useProject } from "~hooks/project"
@@ -23,6 +24,14 @@ function IssueList(): JSX.Element {
     fetchMore // 次のページを取得する関数
   } = useIssue(projects)
 
+  // 画面下の要素にrefを渡し、refが画面に表示されたらisScrollEndがtrueになる
+  const { ref, inView: isScrollEnd } = useInView()
+
+  // 画面が一番下 かつ データを取得中でない かつ ページが最後に到達していない時に、次のページを取得
+  if (isScrollEnd && !isValidating && !isReachingEnd) {
+    fetchMore()
+  }
+
   return (
     <Stack>
       <ListHeader title="課題一覧" />
@@ -32,7 +41,8 @@ function IssueList(): JSX.Element {
         {issues &&
           issues.map((issue) => <IssueCard key={issue.id} issue={issue} />)}
 
-        {!isReachingEnd && <Button onClick={fetchMore}>もっと読み込む</Button>}
+        {/* データ取得中でない場合、検知の要素を表示 */}
+        {!isValidating && <div ref={ref} aria-hidden="true" />}
 
         {/* データ取得中の場合、ローダーを表示 */}
         {isValidating && <Loader />}
