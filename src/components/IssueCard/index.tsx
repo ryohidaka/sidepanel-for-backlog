@@ -1,6 +1,8 @@
 import { Card, CardBody, Heading } from "@chakra-ui/react"
 import type { Issue } from "backlog-js/dist/types/entity"
 
+import IssueKey from "./IssueKey"
+
 type Props = {
   issue: Issue.Issue // バックログの課題情報
 }
@@ -17,7 +19,7 @@ function IssueCard({ issue }: Props): JSX.Element {
       <CardBody p={2} minH={12}>
         <Heading as="h2" size="xs" noOfLines={2}>
           {/* 課題キー */}
-          {issue.issueKey}
+          <IssueKey issueKey={issue.issueKey} />
           {/* 課題タイトル */}
           {issue.summary}
         </Heading>

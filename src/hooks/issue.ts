@@ -70,3 +70,16 @@ export const useIssue = (projectId: number[]) => {
     fetchMore
   }
 }
+
+/**
+ * IssueのURLを取得するカスタムフック
+ * @param {string} issueKey - Issueのキー
+ * @return {string} - IssueのURL
+ */
+export const useIssueURL = (issueKey: string): string => {
+  // Backlogのホスト情報を取得
+  const { host } = useBacklogAuth()
+
+  // IssueのURLを生成して返す
+  return `https://${host}/view/${issueKey}`
+}
