@@ -6,6 +6,7 @@ type Props = {
   label: string // フィールドのラベル
   defaultValue: string // デフォルトの値
   type?: HTMLInputTypeAttribute // 入力フィールドのタイプ
+  placeholder?: string // プレースホルダーの文字列
   onChange?: (newValue: string) => void // 値が変更されたときのハンドラ
 }
 
@@ -16,6 +17,7 @@ type Props = {
  * @param {string} props.label - フィールドのラベル
  * @param {string} props.defaultValue - デフォルトの値
  * @param {HTMLInputTypeAttribute} props.type - 入力フィールドのタイプ
+ * @param {string} props.placeholder - プレースホルダーの文字列
  * @param {(newValue: string) => void} props.onChange - 値が変更されたときのハンドラ
  * @returns {JSX.Element} 入力フォームのエレメント
  */
@@ -24,6 +26,7 @@ function InputForm({
   label,
   defaultValue = "",
   type = "text",
+  placeholder = "",
   onChange
 }: Props): JSX.Element {
   return (
@@ -34,6 +37,7 @@ function InputForm({
         name={name}
         type={type}
         defaultValue={defaultValue} // 制御されていないコンポーネントにするためにvalueからdefaultValueに変更
+        placeholder={placeholder}
         onChange={(e) => onChange && onChange(e.target.value)} // onChangeが存在する場合のみ呼び出す
       />
     </FormControl>

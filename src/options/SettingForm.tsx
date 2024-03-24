@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react"
 
 import InputForm from "../components/InputForm"
+import { HOST_PLACEHOLDER } from "../constants/auth"
 import { useBacklogAuth } from "../hooks/auth"
 
 /**
@@ -32,6 +33,7 @@ function SettingForm() {
             name="host"
             label="ホスト名"
             defaultValue={host}
+            placeholder={HOST_PLACEHOLDER}
             onChange={setHost}
           />
 
