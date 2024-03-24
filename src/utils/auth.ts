@@ -35,3 +35,18 @@ export const saveCredential = async (host: string, apiKey: string) => {
     console.error(e)
   }
 }
+
+/**
+ * 認証情報を削除する非同期関数
+ */
+export const clearCredential = async () => {
+  if (!window.confirm("本当に削除してもよろしいですか？")) return
+
+  try {
+    await storage.setPassword(STORAGE_PASSWORD)
+    await storage.removeAll()
+    alert("削除が完了しました。")
+  } catch (e) {
+    console.error(e)
+  }
+}

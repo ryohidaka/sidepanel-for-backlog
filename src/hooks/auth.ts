@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-import { fetchCredential, saveCredential } from "~utils"
+import { clearCredential, fetchCredential, saveCredential } from "~utils"
 
 /**
  * Backlogの認証情報を管理するフック
@@ -20,12 +20,20 @@ export const useBacklogAuth = () => {
     initializeCredential()
   }, [])
 
+  // 認証情報を削除する
+  const clear = () => {
+    clearCredential()
+    setHost("")
+    setAPIKey("")
+  }
+
   // 認証情報とその更新関数を返す
   return {
     host,
     apiKey,
     setHost,
     setAPIKey,
-    save: () => saveCredential(host, apiKey)
+    save: () => saveCredential(host, apiKey),
+    clear
   }
 }
