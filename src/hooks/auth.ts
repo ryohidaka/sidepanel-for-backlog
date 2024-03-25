@@ -10,6 +10,9 @@ export const useBacklogAuth = () => {
   const [host, setHost] = useState<string>("")
   const [apiKey, setAPIKey] = useState<string>("")
 
+  // TODO: 値が格納されているかではなく、認証できているかを返却するように改修
+  const isLoggedIn = host && apiKey
+
   // コンポーネントのマウント時に認証情報を取得
   useEffect(() => {
     const initializeCredential = async () => {
@@ -31,6 +34,7 @@ export const useBacklogAuth = () => {
   return {
     host,
     apiKey,
+    isLoggedIn,
     setHost,
     setAPIKey,
     save: () => saveCredential(host, apiKey),
