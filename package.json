@@ -44,9 +44,6 @@
     "typescript": "5.4.3"
   },
   "manifest": {
-    "host_permissions": [
-      "https://*/*"
-    ],
     "web_accessible_resources": [
       {
         "resources": [
