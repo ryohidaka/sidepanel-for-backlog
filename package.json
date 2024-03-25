@@ -4,6 +4,14 @@
   "version": "0.0.1",
   "description": "Google Chromeのサイドパネルに、Backlogの課題一覧を表示できます。",
   "author": "ryohidaka <39184410+ryohidaka@users.noreply.github.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryohidaka/sidepanel-for-backlog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ryohidaka/sidepanel-for-backlog/issues"
+  },
+  "homepage": "https://github.com/ryohidaka/sidepanel-for-backlog#readme",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
