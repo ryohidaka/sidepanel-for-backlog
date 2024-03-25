@@ -8,7 +8,7 @@ import {
   VStack
 } from "@chakra-ui/react"
 
-import { APP_NAME, OPTIONS_PAGE_URL } from "~constants"
+import { APP_NAME, APP_VERSION_WITH_PREFIX, OPTIONS_PAGE_URL } from "~constants"
 
 /**
  * Splashコンポーネント
@@ -27,7 +27,7 @@ function Splash(): JSX.Element {
     <VStack spacing={4} p={4}>
       {/* アプリケーション名を表示 */}
       <Heading as="h1" size="md" pt={6}>
-        {APP_NAME}
+        {APP_NAME} ({APP_VERSION_WITH_PREFIX})
       </Heading>
 
       {/* アイコン画像を表示 */}
