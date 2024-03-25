@@ -41,7 +41,7 @@ function Splash(): JSX.Element {
 
       {/* 設定画面へのリンクを提供 */}
       <Link href={OPTIONS_PAGE_URL} isExternal>
-        <Button>設定画面へ移動</Button>
+        <Button colorScheme="brand">設定画面へ移動</Button>
       </Link>
     </VStack>
   )
