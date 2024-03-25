@@ -13,7 +13,7 @@ type Props = {
 function Header({ children }: Props): JSX.Element {
   return (
     <Box
-      bgColor="#4caf93"
+      bgColor="brand.100"
       color="white"
       h={12}
       alignContent="center"
