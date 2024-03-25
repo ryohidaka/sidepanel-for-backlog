@@ -52,7 +52,7 @@ function SettingForm() {
       <CardFooter>
         <HStack w="100%" justifyContent="space-between">
           {/* 設定保存用のボタン */}
-          <Button mt={4} colorScheme="teal" onClick={save}>
+          <Button mt={4} colorScheme="brand" onClick={save}>
             保存
           </Button>
 
