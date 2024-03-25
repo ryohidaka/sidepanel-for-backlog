@@ -25,6 +25,9 @@ export const useIssue = (projectId: number[]) => {
    * @return {Promise<Issue.Issue[]>} - 取得したIssueの配列
    */
   const fetcher = async (pageKey: string) => {
+    // 認証情報がなければ、空配列を返却する
+    if (!host || !apiKey) return []
+
     // Backlog APIのクライアントを作成
     const backlog = new backlogjs.Backlog({ host, apiKey })
     const pageIndex = parseInt(pageKey.split("-")[1])
