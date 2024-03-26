@@ -1,3 +1,5 @@
+import * as backlogjs from "backlog-js"
+
 import { SecureStorage } from "@plasmohq/storage/secure"
 
 import {
@@ -27,6 +29,10 @@ export const fetchCredential = async () => {
  */
 export const saveCredential = async (host: string, apiKey: string) => {
   try {
+    // 認証可能かどうかを判定
+    const backlog = new backlogjs.Backlog({ host, apiKey })
+    await backlog.getSpace()
+
     await storage.setPassword(STORAGE_PASSWORD)
     await storage.set(STORAGE_KEY_HOST, host)
     await storage.set(STORAGE_KEY_API_KEY, apiKey)
