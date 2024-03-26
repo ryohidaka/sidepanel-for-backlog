@@ -4,9 +4,11 @@ import { clearCredential, fetchCredential, saveCredential } from "~utils"
 
 /**
  * Backlogの認証情報を管理するフック
- * @returns {Object} 認証情報とその更新関数
+ * @param {Function} onSave 認証情報の保存成功時に呼び出される関数
+ * @param {Function} onError 認証情報の保存失敗時に呼び出される関数
+ * @returns {Object} 認証情報とその更新関数を含むオブジェクト
  */
-export const useBacklogAuth = () => {
+export const useBacklogAuth = (onSave?: () => void, onError?: () => void) => {
   const [host, setHost] = useState<string>("")
   const [apiKey, setAPIKey] = useState<string>("")
 
@@ -23,11 +25,26 @@ export const useBacklogAuth = () => {
     initializeCredential()
   }, [])
 
+  // 認証情報を保存する
+  const save = async () => {
+    try {
+      await saveCredential(host, apiKey)
+      onSave()
+    } catch (e) {
+      console.error(e)
+      onError()
+    }
+  }
+
   // 認証情報を削除する
   const clear = () => {
-    clearCredential()
-    setHost("")
-    setAPIKey("")
+    try {
+      clearCredential()
+      setHost("")
+      setAPIKey("")
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   // 認証情報とその更新関数を返す
@@ -37,7 +54,7 @@ export const useBacklogAuth = () => {
     isLoggedIn,
     setHost,
     setAPIKey,
-    save: () => saveCredential(host, apiKey),
+    save,
     clear
   }
 }

@@ -36,9 +36,8 @@ export const saveCredential = async (host: string, apiKey: string) => {
     await storage.setPassword(STORAGE_PASSWORD)
     await storage.set(STORAGE_KEY_HOST, host)
     await storage.set(STORAGE_KEY_API_KEY, apiKey)
-    alert("保存が完了しました。")
   } catch (e) {
-    console.error(e)
+    throw new Error(e)
   }
 }
 
@@ -53,6 +52,6 @@ export const clearCredential = async () => {
     await storage.removeAll()
     alert("削除が完了しました。")
   } catch (e) {
-    console.error(e)
+    throw new Error(e)
   }
 }
