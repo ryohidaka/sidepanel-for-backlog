@@ -1,0 +1,41 @@
+name: Publish Package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout code
+
+      - uses: actions/setup-node@v4
+        name: Setup Node.js
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: |
+          npm install -g pnpm
+          pnpm install
+
+      - name: Build project
+        run: |
+          pnpm build
+          pnpm package
+
+      - uses: dream-encode/upload-release-asset-node16@v2
+        name: Upload Release Asset
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          repo_owner: ${{ github.event.repository.owner.login }}
+          repo_name: ${{ github.event.repository.name }}
+          release_id: ${{ github.event.release.id }}
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./build/chrome-mv3-prod.zip
+          asset_name: chrome-mv3-prod.zip
+          asset_content_type: application/zip
