@@ -1,6 +1,7 @@
 # SidePanel for Backlog
 
 ![build](https://github.com/ryohidaka/sidepanel-for-backlog/workflows/Build/badge.svg)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Google Chromeのサイドパネルに、Backlogの課題一覧を表示できる拡張機能です。
 
@@ -19,3 +20,7 @@ Google Chromeのサイドパネルに、Backlogの課題一覧を表示できる
 
 - [Backlog｜チームで使うプロジェクト管理・タスク管理ツール](https://backlog.com/ja/)
 - [Backlog API](https://developer.nulab.com/docs/backlog#)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
