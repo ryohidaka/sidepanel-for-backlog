@@ -1,0 +1,10 @@
+{
+  "$schema": "https://github.com/PlasmoHQ/bpp/raw/main/keys.schema.json",
+  "chrome": {
+    "zip": "chromium_addon_{version}.zip",
+    "clientId": "",
+    "clientSecret": "",
+    "refreshToken": "",
+    "extId": "hfikeaeeajgbcfgfdldpkhakkhbcaocp"
+  }
+}
