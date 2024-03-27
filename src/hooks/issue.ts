@@ -49,8 +49,8 @@ export const useIssue = (projectId: number[]) => {
     fetcher,
     {
       revalidateIfStale: false, // キャッシュがあっても再検証
-      revalidateOnFocus: false, // windowをフォーカスすると再検証
-      revalidateFirstPage: false // ページを読み込むとき毎回1ページ目を再検証
+      revalidateOnFocus: true, // windowをフォーカスすると再検証
+      revalidateFirstPage: true // ページを読み込むとき毎回1ページ目を再検証
     }
   )
 
