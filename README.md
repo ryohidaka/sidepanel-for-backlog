@@ -31,6 +31,7 @@ Backlogの課題一覧をサイドパネルとポップアップに表示でき�
 
 ## リンク
 
+- [更新履歴](./CHANGELOG.md)
 - [Backlog｜チームで使うプロジェクト管理・タスク管理ツール](https://backlog.com/ja/)
 - [Backlog API](https://developer.nulab.com/docs/backlog#)
 
