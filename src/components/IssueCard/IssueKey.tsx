@@ -17,7 +17,7 @@ function IssueKey({ issueKey }: Props): JSX.Element {
   const url = useIssueURL(issueKey)
 
   return (
-    <Link href={url} colorScheme="brand" mr={2} isExternal>
+    <Link href={url} color="brand.100" mr={2} isExternal>
       {issueKey}
     </Link>
   )
