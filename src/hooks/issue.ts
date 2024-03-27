@@ -1,4 +1,5 @@
 import * as backlogjs from "backlog-js"
+import type { Option } from "backlog-js"
 import type { Issue } from "backlog-js/dist/types/entity"
 import { useCallback, useEffect, useState } from "react"
 import useSWRInfinite from "swr/dist/infinite"
@@ -6,11 +7,11 @@ import useSWRInfinite from "swr/dist/infinite"
 import { useBacklogAuth } from "./auth"
 
 /**
- * プロジェクトIDを元にIssueを取得するカスタムフック
- * @param {number[]} projectId - プロジェクトIDの配列
+ * BacklogのIssueを取得するカスタムフック
+ * @param {Option.Issue.GetIssuesParams} params - Issue取得のためのパラメータ
  * @return {object} - 取得したIssueの配列とその他の情報を含むオブジェクト
  */
-export const useIssue = (projectId: number[]) => {
+export const useIssue = (params: Option.Issue.GetIssuesParams) => {
   // Backlogの認証情報を取得
   const { host, apiKey } = useBacklogAuth()
   const [key, setKey] = useState(0)
@@ -35,9 +36,8 @@ export const useIssue = (projectId: number[]) => {
     const backlog = new backlogjs.Backlog({ host, apiKey })
     const pageIndex = parseInt(pageKey.split("-")[1])
     const issues = await backlog.getIssues({
-      projectId,
-      count: limit,
-      offset: pageIndex * limit
+      ...{ count: limit, offset: pageIndex * limit },
+      ...params
     })
 
     return issues
