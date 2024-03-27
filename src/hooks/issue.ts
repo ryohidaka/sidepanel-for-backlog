@@ -15,6 +15,9 @@ export const useIssue = (projectId: number[]) => {
   const { host, apiKey } = useBacklogAuth()
   const [key, setKey] = useState(0)
 
+  // 一度に取得するIssueの上限数
+  const limit = 20
+
   useEffect(() => {
     setKey((prevKey) => prevKey + 1)
   }, [host, apiKey])
@@ -33,8 +36,8 @@ export const useIssue = (projectId: number[]) => {
     const pageIndex = parseInt(pageKey.split("-")[1])
     const issues = await backlog.getIssues({
       projectId,
-      count: 20,
-      offset: pageIndex * 20
+      count: limit,
+      offset: pageIndex * limit
     })
 
     return issues
@@ -57,7 +60,7 @@ export const useIssue = (projectId: number[]) => {
   // 最後に到達した
   const isEmpty = data?.[0].length === 0
   const isReachingEnd =
-    isEmpty || (data && data?.[data?.length - 1]?.length < 20)
+    isEmpty || (data && data?.[data?.length - 1]?.length < limit)
 
   /**
    * もっと読み込む関数
