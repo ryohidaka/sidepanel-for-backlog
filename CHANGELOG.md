@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.2](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.0.1...v0.0.2) (2024-03-27)
+
+
+### Bug Fixes
+
+* 課題キーの文字色を修正 ([9119e79](https://github.com/ryohidaka/sidepanel-for-backlog/commit/9119e796405098f0fe952c98efce0bef93529312))
+* 課題一覧取得の再検証条件を修正 ([7200a63](https://github.com/ryohidaka/sidepanel-for-backlog/commit/7200a6398382092568eb95ce61a87ba9bf11e78d))
+
 ## 0.0.1 (2024-03-26)
 
 
