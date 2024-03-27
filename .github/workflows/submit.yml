@@ -27,8 +27,11 @@ jobs:
         run: pnpm build
       - name: Package the extension into a zip artifact
         run: pnpm package
+      - name: Build and Package the extension for Firefox
+        run: pnpm build-firefox
       - name: Browser Platform Publish
         uses: PlasmoHQ/bpp@v3
         with:
           keys: ${{ secrets.SUBMIT_KEYS }}
           chrome-file: "build/chrome-mv3-prod.zip"
+          firefox-file: "build/firefox-mv2-prod.zip"

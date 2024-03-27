@@ -16,6 +16,7 @@
     "dev": "plasmo dev",
     "build": "plasmo build",
     "package": "plasmo package",
+    "build-firefox": "plasmo build --target=firefox-mv2 --zip",
     "prepare": "husky install",
     "format": "npx prettier ./src --write"
   },

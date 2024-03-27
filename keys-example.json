@@ -6,5 +6,11 @@
     "clientSecret": "",
     "refreshToken": "",
     "extId": "hfikeaeeajgbcfgfdldpkhakkhbcaocp"
+  },
+  "firefox": {
+    "file": "firefox_addon.xpi",
+    "extId": "backlog",
+    "apiKey": "",
+    "apiSecret": ""
   }
 }
