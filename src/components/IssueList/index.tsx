@@ -38,7 +38,7 @@ function IssueList({ params }: Props): JSX.Element {
   return (
     <Stack>
       <ListHeader title="課題一覧" />
-      
+
       <Stack p={2} spacing={2} overflowY="scroll" position="relative">
         {/* 課題が存在する場合、それぞれの課題をIssueCardコンポーネントで表示 */}
         {issues && issues.length > 0 ? (
