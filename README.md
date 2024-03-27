@@ -14,6 +14,11 @@
 - APIキー
   - Backlogの[APIの設定](https://support-ja.backlog.com/hc/ja/articles/360035641754-API%E3%81%AE%E8%A8%AD%E5%AE%9A)を参考にAPIキーを発行してください。
 
+## インストール
+
+[<img src="./assets/images/chrome-web-store.png" alt="Available in the Chrome Web Store" width="248" />](https://chromewebstore.google.com/detail/sidepanel-for-backlog/hfikeaeeajgbcfgfdldpkhakkhbcaocp)
+[<img src="./assets/images/firefox-add-ons.png" alt="Firefox Browser ADD-ONS" width="248" />](https://addons.mozilla.org/ja/firefox/addon/backlog/)
+
 ## 機能
 
 ### 課題一覧表示
