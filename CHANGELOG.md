@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.0.3...v0.0.4) (2024-03-28)
+
+
+### Bug Fixes
+
+* 公開用ビルド作成時の認証キーのパスワードを環境変数から取得する ([44d49b8](https://github.com/ryohidaka/sidepanel-for-backlog/commit/44d49b88808bf03d181cb4f7ba380d186cf6e433))
+
 ## [0.0.3](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.0.2...v0.0.3) (2024-03-28)
 
 
