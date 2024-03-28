@@ -1,7 +1,7 @@
 {
   "name": "sidepanel-for-backlog",
   "displayName": "SidePanel for Backlog",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ブラウザのサイドパネル(もしくはサイドバー)に、Backlogの課題一覧を表示できます。",
   "author": "ryohidaka <39184410+ryohidaka@users.noreply.github.com>",
   "repository": {
