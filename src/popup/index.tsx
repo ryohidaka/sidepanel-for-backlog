@@ -1,6 +1,7 @@
 import { ChakraProvider, Stack } from "@chakra-ui/react"
 
 import IssueList from "~components/IssueList"
+import ListHeader from "~components/IssueList/ListHeader"
 import Splash from "~components/Splash"
 import { useBacklogAuth } from "~hooks/auth"
 import { useProject } from "~hooks/project"
@@ -15,7 +16,10 @@ function IndexPopup() {
     <ChakraProvider theme={customTheme}>
       <Stack w="xs">
         {isLoggedIn ? (
-          <IssueList params={{ projectId: projects }} />
+          <Stack>
+            <ListHeader title="課題一覧" />
+            <IssueList params={{ projectId: projects }} />
+          </Stack>
         ) : (
           <Splash />
         )}

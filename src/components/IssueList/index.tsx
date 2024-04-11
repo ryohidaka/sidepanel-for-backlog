@@ -7,7 +7,6 @@ import { useIssue } from "~hooks/issue"
 import IssueCard from "../IssueCard"
 import Loader from "../Loader"
 import Empty from "./Empty"
-import ListHeader from "./ListHeader"
 
 type Props = {
   params: Option.Issue.GetIssuesParams
@@ -36,23 +35,19 @@ function IssueList({ params }: Props): JSX.Element {
   }
 
   return (
-    <Stack>
-      <ListHeader title="課題一覧" />
+    <Stack p={2} spacing={2} overflowY="scroll" position="relative">
+      {/* 課題が存在する場合、それぞれの課題をIssueCardコンポーネントで表示 */}
+      {issues && issues.length > 0 ? (
+        issues.map((issue) => <IssueCard key={issue.id} issue={issue} />)
+      ) : (
+        <Empty />
+      )}
 
-      <Stack p={2} spacing={2} overflowY="scroll" position="relative">
-        {/* 課題が存在する場合、それぞれの課題をIssueCardコンポーネントで表示 */}
-        {issues && issues.length > 0 ? (
-          issues.map((issue) => <IssueCard key={issue.id} issue={issue} />)
-        ) : (
-          <Empty />
-        )}
+      {/* データ取得中でない場合、検知の要素を表示 */}
+      {!isValidating && <div ref={ref} aria-hidden="true" />}
 
-        {/* データ取得中でない場合、検知の要素を表示 */}
-        {!isValidating && <div ref={ref} aria-hidden="true" />}
-
-        {/* データ取得中の場合、ローダーを表示 */}
-        {isValidating && <Loader />}
-      </Stack>
+      {/* データ取得中の場合、ローダーを表示 */}
+      {isValidating && <Loader />}
     </Stack>
   )
 }
