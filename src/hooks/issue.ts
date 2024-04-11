@@ -11,7 +11,7 @@ import { useBacklogAuth } from "./auth"
  * @param {Option.Issue.GetIssuesParams} params - Issue取得のためのパラメータ
  * @return {object} - 取得したIssueの配列とその他の情報を含むオブジェクト
  */
-export const useIssue = (params: Option.Issue.GetIssuesParams) => {
+export const useIssue = (params?: Option.Issue.GetIssuesParams) => {
   // Backlogの認証情報を取得
   const { host, apiKey } = useBacklogAuth()
   const [key, setKey] = useState(0)

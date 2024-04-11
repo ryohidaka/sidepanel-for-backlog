@@ -4,25 +4,24 @@ import IssueList from "~components/IssueList"
 import ListHeader from "~components/IssueList/ListHeader"
 import Splash from "~components/Splash"
 import { useBacklogAuth } from "~hooks/auth"
-import { useProject } from "~hooks/project"
+import { useIssue } from "~hooks/issue"
 import { customTheme } from "~utils"
 
 function IndexSidePanel() {
   const { isLoggedIn } = useBacklogAuth()
 
-  // プロジェクト情報を取得
-  const projects = useProject()
+  // 課題一覧を取得
+  const {
+    data: issues, // 課題データ
+    ...rest
+  } = useIssue()
 
   return (
     <ChakraProvider theme={customTheme}>
       {isLoggedIn ? (
         <Stack>
           <ListHeader title="課題一覧" />
-          <IssueList
-            params={{
-              projectId: projects
-            }}
-          />
+          <IssueList issues={issues} {...rest} />
         </Stack>
       ) : (
         <Splash />

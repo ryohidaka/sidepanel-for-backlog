@@ -1,31 +1,30 @@
 import { Stack } from "@chakra-ui/react"
-import type { Option } from "backlog-js"
+import type { Issue } from "backlog-js/dist/types/entity"
 import { useInView } from "react-intersection-observer"
-
-import { useIssue } from "~hooks/issue"
 
 import IssueCard from "../IssueCard"
 import Loader from "../Loader"
 import Empty from "./Empty"
 
 type Props = {
-  params: Option.Issue.GetIssuesParams
+  issues: Issue.Issue[]
+  isValidating: boolean
+  isReachingEnd: boolean
+  fetchMore?: () => void
 }
 
 /**
  * IssueListコンポーネント
  * バックログの課題一覧を表示するコンポーネント
- * @param {Props} params - 課題取得のためのパラメータ
+ * @param {Props} params - 課題一覧を表示するためのパラメータ
  * @returns {JSX.Element} レンダリング結果
  */
-function IssueList({ params }: Props): JSX.Element {
-  const {
-    data: issues, // 課題データ
-    isValidating, // データ取得中かどうか
-    isReachingEnd, // ページが最後に到達したかどうか
-    fetchMore // 次のページを取得する関数
-  } = useIssue(params)
-
+function IssueList({
+  issues,
+  isValidating,
+  isReachingEnd,
+  fetchMore
+}: Props): JSX.Element {
   // 画面下の要素にrefを渡し、refが画面に表示されたらisScrollEndがtrueになる
   const { ref, inView: isScrollEnd } = useInView()
 
