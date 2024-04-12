@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.0](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.0.4...v0.1.0) (2024-04-12)
+
+
+### Features
+
+* 共通ヘッダーの配置場所を変更 ([40bfa30](https://github.com/ryohidaka/sidepanel-for-backlog/commit/40bfa30b4ffbc4fc5675c5e843db0766e4e6bd36))
+* 担当タブと登録タブを追加 ([7764f34](https://github.com/ryohidaka/sidepanel-for-backlog/commit/7764f3408532de5c6164090cadf9049df6c942d9))
+* 認証中のユーザ情報を取得するカスタムフックを追加 ([151aba8](https://github.com/ryohidaka/sidepanel-for-backlog/commit/151aba8ef50a248fdf90b290de92aa80911556cf))
+
 ## [0.0.4](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.0.3...v0.0.4) (2024-03-28)
 
 
