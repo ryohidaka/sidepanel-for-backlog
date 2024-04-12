@@ -1,26 +1,19 @@
-import * as backlogjs from "backlog-js"
 import type { User } from "backlog-js/dist/types/entity"
 import { useEffect, useState } from "react"
 
-import { useBacklogAuth } from "./auth"
+import { useBacklog } from "./backlog"
 
 /**
  * 認証ユーザ情報を取得するカスタムフック
  * @return {User.User | null} - 認証ユーザ情報
  */
 export const useMyself = () => {
-  // Backlogの認証情報を取得
-  const { host, apiKey } = useBacklogAuth()
+  // Backlog APIのクライアントを取得
+  const backlog = useBacklog()
 
   const [myself, setMyself] = useState<User.User | null>()
 
   useEffect(() => {
-    // 認証情報がなければ何もしない
-    if (!host || !apiKey) return
-
-    // Backlog APIのクライアントを作成
-    const backlog = new backlogjs.Backlog({ host, apiKey })
-
     /**
      * 自分自身の情報を取得し、その情報をstateに保存する非同期関数
      */
@@ -34,7 +27,7 @@ export const useMyself = () => {
 
     // 非同期関数を実行
     fetchMyself()
-  }, [host, apiKey]) // 認証情報が変更されたときに再実行
+  }, [backlog]) // APIクライアントが更新されたときに再実行
 
   return myself
 }

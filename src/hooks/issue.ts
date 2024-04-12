@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react"
 import useSWRInfinite from "swr/dist/infinite"
 
 import { useBacklogAuth } from "./auth"
+import { useBacklog } from "./backlog"
 
 /**
  * BacklogのIssueを取得するカスタムフック
@@ -12,8 +13,9 @@ import { useBacklogAuth } from "./auth"
  * @return {object} - 取得したIssueの配列とその他の情報を含むオブジェクト
  */
 export const useIssue = (params?: Option.Issue.GetIssuesParams) => {
-  // Backlogの認証情報を取得
-  const { host, apiKey } = useBacklogAuth()
+  // Backlog APIのクライアントを取得
+  const backlog = useBacklog()
+
   const [key, setKey] = useState(JSON.stringify(params))
 
   // 一度に取得するIssueの上限数
@@ -21,7 +23,7 @@ export const useIssue = (params?: Option.Issue.GetIssuesParams) => {
 
   useEffect(() => {
     setKey(JSON.stringify(params))
-  }, [host, apiKey, params])
+  }, [backlog, params])
 
   /**
    * ページキーを元にIssueを取得する関数
@@ -29,11 +31,6 @@ export const useIssue = (params?: Option.Issue.GetIssuesParams) => {
    * @return {Promise<Issue.Issue[]>} - 取得したIssueの配列
    */
   const fetcher = async (pageKey: string) => {
-    // 認証情報がなければ、空配列を返却する
-    if (!host || !apiKey) return []
-
-    // Backlog APIのクライアントを作成
-    const backlog = new backlogjs.Backlog({ host, apiKey })
     const pageIndex = parseInt(pageKey.split("-")[1])
     const issues = await backlog.getIssues({
       ...{ count: limit, offset: pageIndex * limit },
