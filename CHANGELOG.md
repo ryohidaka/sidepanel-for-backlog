@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.1.0...v0.2.0) (2024-04-12)
+
+
+### Features
+
+* 自分の課題一覧を別コンポーネントに分離 ([61f309c](https://github.com/ryohidaka/sidepanel-for-backlog/commit/61f309c1796c9371fe1ee3380e82ce9e1faa1dc6))
+
 ## [0.1.0](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.0.4...v0.1.0) (2024-04-12)
 
 
