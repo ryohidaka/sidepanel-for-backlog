@@ -14,14 +14,14 @@ import { useBacklogAuth } from "./auth"
 export const useIssue = (params?: Option.Issue.GetIssuesParams) => {
   // Backlogの認証情報を取得
   const { host, apiKey } = useBacklogAuth()
-  const [key, setKey] = useState(0)
+  const [key, setKey] = useState(JSON.stringify(params))
 
   // 一度に取得するIssueの上限数
   const limit = 20
 
   useEffect(() => {
-    setKey((prevKey) => prevKey + 1)
-  }, [host, apiKey])
+    setKey(JSON.stringify(params))
+  }, [host, apiKey, params])
 
   /**
    * ページキーを元にIssueを取得する関数
