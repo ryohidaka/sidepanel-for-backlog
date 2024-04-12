@@ -30,8 +30,7 @@ export const fetchCredential = async () => {
 export const saveCredential = async (host: string, apiKey: string) => {
   try {
     // 認証可能かどうかを判定
-    const backlog = new backlogjs.Backlog({ host, apiKey })
-    await backlog.getSpace()
+    await getSpace(host, apiKey)
 
     await storage.setPassword(STORAGE_PASSWORD)
     await storage.set(STORAGE_KEY_HOST, host)
@@ -51,6 +50,21 @@ export const clearCredential = async () => {
     await storage.setPassword(STORAGE_PASSWORD)
     await storage.removeAll()
     alert("削除が完了しました。")
+  } catch (e) {
+    throw new Error(e)
+  }
+}
+
+/**
+ * スペース情報を取得することで、認証可能かどうか判定する
+ * @param host
+ * @param apiKey
+ */
+export const getSpace = async (host: string, apiKey: string) => {
+  try {
+    // 認証可能かどうかを判定
+    const backlog = new backlogjs.Backlog({ host, apiKey })
+    await backlog.getSpace()
   } catch (e) {
     throw new Error(e)
   }

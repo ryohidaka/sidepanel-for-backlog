@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react"
 
-import { clearCredential, fetchCredential, saveCredential } from "~utils"
+import {
+  clearCredential,
+  fetchCredential,
+  getSpace,
+  saveCredential
+} from "~utils"
 
 /**
  * Backlogの認証情報を管理するフック
@@ -11,16 +16,26 @@ import { clearCredential, fetchCredential, saveCredential } from "~utils"
 export const useBacklogAuth = (onSave?: () => void, onError?: () => void) => {
   const [host, setHost] = useState<string>("")
   const [apiKey, setAPIKey] = useState<string>("")
-
-  // TODO: 値が格納されているかではなく、認証できているかを返却するように改修
-  const isLoggedIn = host && apiKey
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   // コンポーネントのマウント時に認証情報を取得
   useEffect(() => {
     const initializeCredential = async () => {
-      const { host, apiKey } = await fetchCredential()
-      setHost(host)
-      setAPIKey(apiKey)
+      try {
+        const { host, apiKey } = await fetchCredential()
+
+        if (!host || !apiKey) return
+
+        // 認証可能かどうかを判定
+        await getSpace(host, apiKey)
+
+        setHost(host)
+        setAPIKey(apiKey)
+        setIsLoggedIn(true)
+      } catch (e) {
+        console.error(e)
+        onError()
+      }
     }
     initializeCredential()
   }, [])
@@ -42,6 +57,7 @@ export const useBacklogAuth = (onSave?: () => void, onError?: () => void) => {
       clearCredential()
       setHost("")
       setAPIKey("")
+      setIsLoggedIn(false)
     } catch (e) {
       console.error(e)
     }
