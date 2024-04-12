@@ -1,6 +1,6 @@
 import { Link } from "@chakra-ui/react"
 
-import { useIssueURL } from "~hooks/issue"
+import { useIssueURL } from "~hooks"
 
 type Props = {
   issueKey: string // バックログの課題キー

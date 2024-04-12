@@ -3,7 +3,7 @@ import { ChakraProvider, Stack } from "@chakra-ui/react"
 import ListHeader from "~components/IssueList/ListHeader"
 import MyIssueList from "~components/MyIssueList"
 import Splash from "~components/Splash"
-import { useBacklogAuth } from "~hooks/auth"
+import { useBacklogAuth } from "~hooks"
 import { customTheme } from "~utils"
 
 function IndexPopup() {

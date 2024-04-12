@@ -1,7 +1,6 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react"
 
-import { useIssue } from "~hooks/issue"
-import { useMyself } from "~hooks/myself"
+import { useIssue, useMyself } from "~hooks"
 
 import IssueList from "./IssueList"
 
