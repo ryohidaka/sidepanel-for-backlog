@@ -1,44 +1,41 @@
-name: "Submit to Web Store"
+name: Submit
+
 on:
   workflow_dispatch:
   pull_request:
+    branches:
+      - main
     types:
       - closed
 
 env:
-  PLASMO_PUBLIC_STORAGE_PASSWORD: ${{secrets.PLASMO_PUBLIC_STORAGE_PASSWORD}}
+  VITE_STORAGE_PASSWORD: ${{secrets.VITE_STORAGE_PASSWORD}}
 
 jobs:
-  build:
-    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
+  publish:
+    if: |
+      github.event_name == 'pull_request' && github.event.pull_request.merged == true ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Cache pnpm modules
-        uses: actions/cache@v3
+      - uses: ryohidaka/wxt-submit@v1.0.0
         with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-
-      - uses: pnpm/action-setup@v2.2.4
-        with:
-          version: latest
-          run_install: true
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3.4.1
-        with:
-          node-version: 16.x
-          cache: "pnpm"
-      - name: Build the extension
-        run: pnpm build
-      - name: Package the extension into a zip artifact
-        run: pnpm package
-      - name: Build and Package the extension for Firefox
-        run: pnpm build-firefox
-      - name: Browser Platform Publish
-        uses: PlasmoHQ/bpp@v3
-        with:
-          keys: ${{ secrets.SUBMIT_KEYS }}
-          chrome-file: "build/chrome-mv3-prod.zip"
-          firefox-file: "build/firefox-mv2-prod.zip"
+          # For Chrome Extension
+          chrome: true
+          chrome-extension-id: "hfikeaeeajgbcfgfdldpkhakkhbcaocp"
+          chrome-client-id: ${{ secrets.CHROME_CLIENT_ID }}
+          chrome-client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+          chrome-refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
+
+          # For Firefox Addon
+          firefox: true
+          firefox-extension-id: "tech@hidaka.dev"
+          firefox-jwt-issuer: ${{ secrets.FIREFOX_JWT_ISSUER }}
+          firefox-jwt-secret: ${{ secrets.FIREFOX_JWT_SECRET }}
+
+          # For Edge Extension
+          edge: false
+          edge-product-id: ""
+          edge-client-id: ${{ secrets.EDGE_CLIENT_ID }}
+          edge-client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
+          edge-access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}

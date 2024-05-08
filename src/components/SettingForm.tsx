@@ -7,19 +7,19 @@ import {
   Heading,
   HStack,
   Stack,
-  useToast
-} from "@chakra-ui/react"
+  useToast,
+} from "@chakra-ui/react";
 
-import InputForm from "../components/InputForm"
-import { HOST_PLACEHOLDER } from "../constants/auth"
-import { useBacklogAuth } from "../hooks/auth"
+import InputForm from "./InputForm";
+import { HOST_PLACEHOLDER } from "../constants/auth";
+import { useBacklogAuth } from "../hooks/auth";
 
 /**
  * Backlogの設定フォームを表示するコンポーネント
  * @returns {JSX.Element} 設定フォームのコンポーネント
  */
 function SettingForm() {
-  const toast = useToast()
+  const toast = useToast();
 
   // 認証情報保存完了時に発火する
   const onSave = () => {
@@ -29,9 +29,9 @@ function SettingForm() {
       status: "success",
       duration: 9000,
       isClosable: true,
-      position: "top"
-    })
-  }
+      position: "top",
+    });
+  };
 
   // 認証情報エラー時に発火する
   const onError = () => {
@@ -41,15 +41,15 @@ function SettingForm() {
       status: "error",
       duration: 9000,
       isClosable: true,
-      position: "top"
-    })
-  }
+      position: "top",
+    });
+  };
 
   // Backlog認証用のカスタムフックから必要な値と関数を取得
   const { host, apiKey, setHost, setAPIKey, save, clear } = useBacklogAuth(
     onSave,
     onError
-  )
+  );
 
   return (
     <Card>
@@ -93,7 +93,7 @@ function SettingForm() {
         </HStack>
       </CardFooter>
     </Card>
-  )
+  );
 }
 
-export default SettingForm
+export default SettingForm;

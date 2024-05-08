@@ -19,9 +19,6 @@ import { APP_NAME, APP_VERSION_WITH_PREFIX, OPTIONS_PAGE_URL } from "~constants"
  * @returns {JSX.Element} スプラッシュ画面のコンポーネント
  */
 function Splash(): JSX.Element {
-  // アイコンのURLを取得
-  const icon = chrome.runtime.getURL("assets/icon.png")
-
   // スプラッシュ画面のコンポーネントを返す
   return (
     <VStack spacing={4} p={4}>
@@ -31,7 +28,7 @@ function Splash(): JSX.Element {
       </Heading>
 
       {/* アイコン画像を表示 */}
-      <Image src={icon} alt="Backlogロゴ画像" boxSize="100px" />
+      <Image src="/icon.png" alt="Backlogロゴ画像" boxSize="100px" />
 
       {/* 設定が必要であることをユーザーに通知 */}
       <Alert status="warning">
@@ -44,7 +41,7 @@ function Splash(): JSX.Element {
         <Button colorScheme="brand">設定画面へ移動</Button>
       </Link>
     </VStack>
-  )
+  );
 }
 
 export default Splash

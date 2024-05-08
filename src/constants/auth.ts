@@ -1,7 +1,7 @@
 /**
  * Storage Password
  */
-export const STORAGE_PASSWORD = process.env.PLASMO_PUBLIC_STORAGE_PASSWORD
+export const STORAGE_PASSWORD = import.meta.env.VITE_STORAGE_PASSWORD;
 
 /**
  * Storage Keys
