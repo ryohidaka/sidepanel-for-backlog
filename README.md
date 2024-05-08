@@ -19,8 +19,8 @@
 
 ## インストール
 
-[<img src="./docs/images/chrome-web-store.png" alt="Available in the Chrome Web Store" width="248" />](https://chromewebstore.google.com/detail/sidepanel-for-backlog/hfikeaeeajgbcfgfdldpkhakkhbcaocp)
-[<img src="./docs/images/firefox-add-ons.png" alt="Firefox Browser ADD-ONS" width="248" />](https://addons.mozilla.org/ja/firefox/addon/backlog/)
+[<img src="./docs/images/store/chrome-web-store.png" alt="Available in the Chrome Web Store" width="248" />](https://chromewebstore.google.com/detail/sidepanel-for-backlog/hfikeaeeajgbcfgfdldpkhakkhbcaocp)
+[<img src="./docs/images/store/firefox-add-ons.png" alt="Firefox Browser ADD-ONS" width="248" />](https://addons.mozilla.org/ja/firefox/addon/backlog/)
 
 <!-- [<img src="./docs/images/store/microsoft.webp" alt="Microsoft Edge Addons" width="248" />](https://microsoftedge.microsoft.com/...) -->
 
