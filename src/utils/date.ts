@@ -1,4 +1,4 @@
-import { isAfter, subHours } from "date-fns"
+import { isAfter, subHours } from "date-fns";
 
 /**
  * 期日が24時間以内に過ぎているかどうかを判定する関数
@@ -7,12 +7,12 @@ import { isAfter, subHours } from "date-fns"
  */
 export const isTimeOver = (dueDate: string): boolean => {
   // 期日と現在の日時をDateオブジェクトとして生成
-  const date = new Date(dueDate)
-  const now = new Date()
+  const date = new Date(dueDate);
+  const now = new Date();
 
   // 期日が現在の日時の24時間後にあるかどうかを判定
-  return isAfter(date, subHours(now, 24))
-}
+  return isAfter(date, subHours(now, 24));
+};
 
 /**
  * 日付文字列をフォーマットする関数
@@ -24,6 +24,6 @@ export const formatDate = (dateString: string): string => {
   return new Date(dateString).toLocaleDateString("ja-JP", {
     year: "numeric",
     month: "2-digit",
-    day: "2-digit"
-  })
-}
+    day: "2-digit",
+  });
+};

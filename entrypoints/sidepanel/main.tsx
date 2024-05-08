@@ -11,5 +11,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ChakraProvider theme={customTheme}>
       <App />
     </ChakraProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 import {
   clearCredential,
   fetchCredential,
   getSpace,
-  saveCredential
-} from "~utils"
+  saveCredential,
+} from "~utils";
 
 /**
  * Backlogの認証情報を管理するフック
@@ -14,54 +14,54 @@ import {
  * @returns {Object} 認証情報とその更新関数を含むオブジェクト
  */
 export const useBacklogAuth = (onSave?: () => void, onError?: () => void) => {
-  const [host, setHost] = useState<string>("")
-  const [apiKey, setAPIKey] = useState<string>("")
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [host, setHost] = useState<string>("");
+  const [apiKey, setAPIKey] = useState<string>("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // コンポーネントのマウント時に認証情報を取得
   useEffect(() => {
     const initializeCredential = async () => {
       try {
-        const { host, apiKey } = await fetchCredential()
+        const { host, apiKey } = await fetchCredential();
 
-        if (!host || !apiKey) return
+        if (!host || !apiKey) return;
 
         // 認証可能かどうかを判定
-        await getSpace(host, apiKey)
+        await getSpace(host, apiKey);
 
-        setHost(host)
-        setAPIKey(apiKey)
-        setIsLoggedIn(true)
+        setHost(host);
+        setAPIKey(apiKey);
+        setIsLoggedIn(true);
       } catch (e) {
-        console.error(e)
-        onError()
+        console.error(e);
+        onError();
       }
-    }
-    initializeCredential()
-  }, [])
+    };
+    initializeCredential();
+  }, []);
 
   // 認証情報を保存する
   const save = async () => {
     try {
-      await saveCredential(host, apiKey)
-      onSave()
+      await saveCredential(host, apiKey);
+      onSave();
     } catch (e) {
-      console.error(e)
-      onError()
+      console.error(e);
+      onError();
     }
-  }
+  };
 
   // 認証情報を削除する
   const clear = () => {
     try {
-      clearCredential()
-      setHost("")
-      setAPIKey("")
-      setIsLoggedIn(false)
+      clearCredential();
+      setHost("");
+      setAPIKey("");
+      setIsLoggedIn(false);
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
-  }
+  };
 
   // 認証情報とその更新関数を返す
   return {
@@ -71,6 +71,6 @@ export const useBacklogAuth = (onSave?: () => void, onError?: () => void) => {
     setHost,
     setAPIKey,
     save,
-    clear
-  }
-}
+    clear,
+  };
+};

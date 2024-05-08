@@ -1,13 +1,13 @@
-import { Card, CardBody, Heading, HStack, Stack } from "@chakra-ui/react"
-import type { Issue } from "backlog-js/dist/types/entity"
+import { Card, CardBody, Heading, HStack, Stack } from "@chakra-ui/react";
+import type { Issue } from "backlog-js/dist/types/entity";
 
-import DueLabel from "./DueLabel"
-import IssueKey from "./IssueKey"
-import StatusBadge from "./StatusBadge"
+import DueLabel from "./DueLabel";
+import IssueKey from "./IssueKey";
+import StatusBadge from "./StatusBadge";
 
 type Props = {
-  issue: Issue.Issue // バックログの課題情報
-}
+  issue: Issue.Issue; // バックログの課題情報
+};
 
 /**
  * IssueCardコンポーネント
@@ -36,7 +36,7 @@ function IssueCard({ issue }: Props): JSX.Element {
         </Stack>
       </CardBody>
     </Card>
-  )
+  );
 }
 
-export default IssueCard
+export default IssueCard;

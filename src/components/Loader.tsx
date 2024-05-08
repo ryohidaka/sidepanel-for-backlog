@@ -1,4 +1,4 @@
-import { AbsoluteCenter, Spinner, Stack } from "@chakra-ui/react"
+import { AbsoluteCenter, Spinner, Stack } from "@chakra-ui/react";
 
 /**
  * Loaderコンポーネント
@@ -12,7 +12,7 @@ function Loader(): JSX.Element {
         <Spinner size="xl" />
       </AbsoluteCenter>
     </Stack>
-  )
+  );
 }
 
-export default Loader
+export default Loader;

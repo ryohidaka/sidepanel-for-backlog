@@ -48,7 +48,7 @@ function SettingForm() {
   // Backlog認証用のカスタムフックから必要な値と関数を取得
   const { host, apiKey, setHost, setAPIKey, save, clear } = useBacklogAuth(
     onSave,
-    onError
+    onError,
   );
 
   return (

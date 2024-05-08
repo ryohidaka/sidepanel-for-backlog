@@ -1,10 +1,10 @@
-import { Link } from "@chakra-ui/react"
+import { Link } from "@chakra-ui/react";
 
-import { useIssueURL } from "~hooks"
+import { useIssueURL } from "~hooks";
 
 type Props = {
-  issueKey: string // バックログの課題キー
-}
+  issueKey: string; // バックログの課題キー
+};
 
 /**
  * IssueKeyコンポーネント
@@ -14,13 +14,13 @@ type Props = {
  */
 function IssueKey({ issueKey }: Props): JSX.Element {
   // 課題キーからURLを取得
-  const url = useIssueURL(issueKey)
+  const url = useIssueURL(issueKey);
 
   return (
     <Link href={url} color="brand.100" mr={2} isExternal>
       {issueKey}
     </Link>
-  )
+  );
 }
 
-export default IssueKey
+export default IssueKey;

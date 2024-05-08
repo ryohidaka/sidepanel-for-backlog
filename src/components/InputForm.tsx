@@ -1,14 +1,14 @@
-import { FormControl, FormLabel, Input } from "@chakra-ui/react"
-import type { HTMLInputTypeAttribute } from "react"
+import { FormControl, FormLabel, Input } from "@chakra-ui/react";
+import type { HTMLInputTypeAttribute } from "react";
 
 type Props = {
-  name: string // 入力フィールドの名前
-  label: string // フィールドのラベル
-  defaultValue: string // デフォルトの値
-  type?: HTMLInputTypeAttribute // 入力フィールドのタイプ
-  placeholder?: string // プレースホルダーの文字列
-  onChange?: (newValue: string) => void // 値が変更されたときのハンドラ
-}
+  name: string; // 入力フィールドの名前
+  label: string; // フィールドのラベル
+  defaultValue: string; // デフォルトの値
+  type?: HTMLInputTypeAttribute; // 入力フィールドのタイプ
+  placeholder?: string; // プレースホルダーの文字列
+  onChange?: (newValue: string) => void; // 値が変更されたときのハンドラ
+};
 
 /**
  * 入力フォームコンポーネント
@@ -27,7 +27,7 @@ function InputForm({
   defaultValue = "",
   type = "text",
   placeholder = "",
-  onChange
+  onChange,
 }: Props): JSX.Element {
   return (
     <FormControl>
@@ -41,7 +41,7 @@ function InputForm({
         onChange={(e) => onChange && onChange(e.target.value)} // onChangeが存在する場合のみ呼び出す
       />
     </FormControl>
-  )
+  );
 }
 
-export default InputForm
+export default InputForm;

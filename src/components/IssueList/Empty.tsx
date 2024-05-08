@@ -1,4 +1,4 @@
-import { Alert, AlertIcon } from "@chakra-ui/react"
+import { Alert, AlertIcon } from "@chakra-ui/react";
 
 /**
  * 課題一覧が空の場合の表示
@@ -10,7 +10,7 @@ function Empty(): JSX.Element {
       <AlertIcon />
       課題が見つかりません
     </Alert>
-  )
+  );
 }
 
-export default Empty
+export default Empty;

@@ -5,10 +5,14 @@ import {
   Heading,
   Image,
   Link,
-  VStack
-} from "@chakra-ui/react"
+  VStack,
+} from "@chakra-ui/react";
 
-import { APP_NAME, APP_VERSION_WITH_PREFIX, OPTIONS_PAGE_URL } from "~constants"
+import {
+  APP_NAME,
+  APP_VERSION_WITH_PREFIX,
+  OPTIONS_PAGE_URL,
+} from "~constants";
 
 /**
  * Splashコンポーネント
@@ -44,4 +48,4 @@ function Splash(): JSX.Element {
   );
 }
 
-export default Splash
+export default Splash;

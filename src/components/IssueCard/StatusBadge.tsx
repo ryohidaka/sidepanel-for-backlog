@@ -1,9 +1,9 @@
-import { Badge } from "@chakra-ui/react"
-import type { Issue } from "backlog-js/dist/types/entity"
+import { Badge } from "@chakra-ui/react";
+import type { Issue } from "backlog-js/dist/types/entity";
 
 type Props = {
-  status: Issue.Issue["status"]
-}
+  status: Issue.Issue["status"];
+};
 
 /**
  * StatusBadgeコンポーネント
@@ -16,7 +16,7 @@ function StatusBadge({ status }: Props): JSX.Element {
     <Badge bgColor={status.color} color="white">
       {status.name}
     </Badge>
-  )
+  );
 }
 
-export default StatusBadge
+export default StatusBadge;

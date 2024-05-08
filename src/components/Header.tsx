@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/react"
-import type { ReactNode } from "react"
+import { Box } from "@chakra-ui/react";
+import type { ReactNode } from "react";
 
 type Props = {
-  children: ReactNode | ReactNode[]
-}
+  children: ReactNode | ReactNode[];
+};
 
 /**
  * Headerコンポーネント
@@ -21,10 +21,11 @@ function Header({ children }: Props): JSX.Element {
       as="header"
       position="sticky"
       top={0}
-      zIndex={1}>
+      zIndex={1}
+    >
       {children}
     </Box>
-  )
+  );
 }
 
-export default Header
+export default Header;

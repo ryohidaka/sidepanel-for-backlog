@@ -1,38 +1,38 @@
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react"
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 
-import { useIssue, useMyself } from "~hooks"
+import { useIssue, useMyself } from "~hooks";
 
-import IssueList from "./IssueList"
+import IssueList from "./IssueList";
 
 function MyIssueList() {
   // 自分自身の情報を取得
-  const myself = useMyself()
+  const myself = useMyself();
 
   // 担当の課題一覧を取得
   const {
     data: assignedIssues, // 課題データ
     ...assignedIssuesRest
-  } = useIssue({ assigneeId: myself && [myself.id] })
+  } = useIssue({ assigneeId: myself && [myself.id] });
 
   // 登録した課題一覧を取得
   const {
     data: createdIssues, // 課題データ
     ...createdIssuesRest
-  } = useIssue({ createdUserId: myself && [myself.id] })
+  } = useIssue({ createdUserId: myself && [myself.id] });
 
   // タブの情報を定義
   const tabs = [
     {
       label: "担当",
       issues: assignedIssues,
-      rest: assignedIssuesRest
+      rest: assignedIssuesRest,
     },
     {
       label: "登録",
       issues: createdIssues,
-      rest: createdIssuesRest
-    }
-  ]
+      rest: createdIssuesRest,
+    },
+  ];
 
   return (
     <Tabs isLazy isFitted colorScheme="brand">
@@ -50,7 +50,7 @@ function MyIssueList() {
         ))}
       </TabPanels>
     </Tabs>
-  )
+  );
 }
 
-export default MyIssueList
+export default MyIssueList;

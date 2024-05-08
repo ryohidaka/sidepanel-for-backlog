@@ -1,10 +1,10 @@
-import { Heading, HStack, Link } from "@chakra-ui/react"
+import { Heading, HStack, Link } from "@chakra-ui/react";
 
-import Header from "../Header"
+import Header from "../Header";
 
 type Props = {
-  title: string // ヘッダーのタイトル
-}
+  title: string; // ヘッダーのタイトル
+};
 
 /**
  * Headerコンポーネント
@@ -24,7 +24,7 @@ function ListHeader({ title }: Props): JSX.Element {
         </Link>
       </HStack>
     </Header>
-  )
+  );
 }
 
-export default ListHeader
+export default ListHeader;

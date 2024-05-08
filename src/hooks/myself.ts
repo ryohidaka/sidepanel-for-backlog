@@ -1,7 +1,7 @@
-import type { User } from "backlog-js/dist/types/entity"
-import { useEffect, useState } from "react"
+import type { User } from "backlog-js/dist/types/entity";
+import { useEffect, useState } from "react";
 
-import { useBacklog } from "./backlog"
+import { useBacklog } from "./backlog";
 
 /**
  * 認証ユーザ情報を取得するカスタムフック
@@ -9,9 +9,9 @@ import { useBacklog } from "./backlog"
  */
 export const useMyself = () => {
   // Backlog APIのクライアントを取得
-  const backlog = useBacklog()
+  const backlog = useBacklog();
 
-  const [myself, setMyself] = useState<User.User | null>()
+  const [myself, setMyself] = useState<User.User | null>();
 
   useEffect(() => {
     /**
@@ -19,15 +19,15 @@ export const useMyself = () => {
      */
     const fetchMyself = async () => {
       // 自分自身の情報を取得
-      const myself = await backlog.getMyself()
+      const myself = await backlog.getMyself();
 
       // 自分自身の情報をstateに保存
-      setMyself(myself)
-    }
+      setMyself(myself);
+    };
 
     // 非同期関数を実行
-    fetchMyself()
-  }, [backlog]) // APIクライアントが更新されたときに再実行
+    fetchMyself();
+  }, [backlog]); // APIクライアントが更新されたときに再実行
 
-  return myself
-}
+  return myself;
+};

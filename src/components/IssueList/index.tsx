@@ -1,17 +1,17 @@
-import { Stack } from "@chakra-ui/react"
-import type { Issue } from "backlog-js/dist/types/entity"
-import { useInView } from "react-intersection-observer"
+import { Stack } from "@chakra-ui/react";
+import type { Issue } from "backlog-js/dist/types/entity";
+import { useInView } from "react-intersection-observer";
 
-import IssueCard from "../IssueCard"
-import Loader from "../Loader"
-import Empty from "./Empty"
+import IssueCard from "../IssueCard";
+import Loader from "../Loader";
+import Empty from "./Empty";
 
 type Props = {
-  issues: Issue.Issue[]
-  isValidating: boolean
-  isReachingEnd: boolean
-  fetchMore?: () => void
-}
+  issues: Issue.Issue[];
+  isValidating: boolean;
+  isReachingEnd: boolean;
+  fetchMore?: () => void;
+};
 
 /**
  * IssueListコンポーネント
@@ -23,14 +23,14 @@ function IssueList({
   issues,
   isValidating,
   isReachingEnd,
-  fetchMore
+  fetchMore,
 }: Props): JSX.Element {
   // 画面下の要素にrefを渡し、refが画面に表示されたらisScrollEndがtrueになる
-  const { ref, inView: isScrollEnd } = useInView()
+  const { ref, inView: isScrollEnd } = useInView();
 
   // 画面が一番下 かつ データを取得中でない かつ ページが最後に到達していない時に、次のページを取得
   if (isScrollEnd && !isValidating && !isReachingEnd) {
-    fetchMore()
+    fetchMore();
   }
 
   return (
@@ -48,7 +48,7 @@ function IssueList({
       {/* データ取得中の場合、ローダーを表示 */}
       {isValidating && <Loader />}
     </Stack>
-  )
+  );
 }
 
-export default IssueList
+export default IssueList;
