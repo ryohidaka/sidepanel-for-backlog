@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.2.0...v0.3.0) (2024-05-08)
+
+
+### Features
+
+* フレームワークをWXTに変更 ([32fb114](https://github.com/ryohidaka/sidepanel-for-backlog/commit/32fb114916f72b441e2650ae8a7a1a204980268c))
+* 認証状態の判定処理を修正 ([5923382](https://github.com/ryohidaka/sidepanel-for-backlog/commit/59233824df1c67ce7533dace65502d11d9c842b0))
+
 ## [0.2.0](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.1.0...v0.2.0) (2024-04-12)
 
 
