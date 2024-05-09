@@ -20,34 +20,20 @@ function MyIssueList() {
     ...createdIssuesRest
   } = useIssue({ createdUserId: myself && [myself.id] });
 
-  // タブの情報を定義
-  const tabs = [
-    {
-      label: "担当",
-      issues: assignedIssues,
-      rest: assignedIssuesRest,
-    },
-    {
-      label: "登録",
-      issues: createdIssues,
-      rest: createdIssuesRest,
-    },
-  ];
-
   return (
     <Tabs isLazy isFitted colorScheme="brand">
       <TabList position="sticky" zIndex={1} top={12} bg="white">
-        {tabs.map((tab, index) => (
-          <Tab key={index}>{tab.label}</Tab>
-        ))}
+        <Tab>担当</Tab>
+        <Tab>登録</Tab>
       </TabList>
 
       <TabPanels>
-        {tabs.map((tab, index) => (
-          <TabPanel key={index} p={0}>
-            <IssueList issues={tab.issues} {...tab.rest} />
+        <TabPanel p={0}>
+          <IssueList params={{ assigneeId: myselfIds }} />
+        </TabPanel>
+        <TabPanel p={0}>
+          <IssueList params={{ createdUserId: myselfIds }} />
           </TabPanel>
-        ))}
       </TabPanels>
     </Tabs>
   );
