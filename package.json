@@ -2,7 +2,7 @@
   "name": "sidepanel-for-backlog",
   "description": "ブラウザのサイドパネル(もしくはサイドバー)に、Backlogの課題一覧を表示できます。",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "scripts": {
     "dev": "wxt",

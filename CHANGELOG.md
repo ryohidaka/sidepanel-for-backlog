@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.3.0...v0.3.1) (2024-05-09)
+
+
+### Bug Fixes
+
+* タブが重なって表示される不具合を修正 ([f0df1d6](https://github.com/ryohidaka/sidepanel-for-backlog/commit/f0df1d6edf4acac166e0616cdac9f83262a0a9cf))
+
 ## [0.3.0](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.2.0...v0.3.0) (2024-05-08)
 
 
