@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.3.1...v0.4.0) (2024-05-09)
+
+
+### Features
+
+* データ取得のカスタムフックをuse-backlogに置換 ([465a46b](https://github.com/ryohidaka/sidepanel-for-backlog/commit/465a46b1437d175b8520cdf4e24c6bd79733b71a))
+
 ## [0.3.1](https://github.com/ryohidaka/sidepanel-for-backlog/compare/v0.3.0...v0.3.1) (2024-05-09)
 
 
