@@ -1,24 +1,12 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 
-import { useIssue, useMyself } from "~hooks";
-
 import IssueList from "./IssueList";
+import { useMyself } from "use-backlog";
 
 function MyIssueList() {
   // 自分自身の情報を取得
-  const myself = useMyself();
-
-  // 担当の課題一覧を取得
-  const {
-    data: assignedIssues, // 課題データ
-    ...assignedIssuesRest
-  } = useIssue({ assigneeId: myself && [myself.id] });
-
-  // 登録した課題一覧を取得
-  const {
-    data: createdIssues, // 課題データ
-    ...createdIssuesRest
-  } = useIssue({ createdUserId: myself && [myself.id] });
+  const { myself } = useMyself();
+  const myselfIds = myself ? [myself.id] : [];
 
   return (
     <Tabs isLazy isFitted colorScheme="brand">
@@ -33,7 +21,7 @@ function MyIssueList() {
         </TabPanel>
         <TabPanel p={0}>
           <IssueList params={{ createdUserId: myselfIds }} />
-          </TabPanel>
+        </TabPanel>
       </TabPanels>
     </Tabs>
   );

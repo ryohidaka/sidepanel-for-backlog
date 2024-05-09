@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useBacklog } from "use-backlog";
 
 import {
   clearCredential,
@@ -16,7 +17,7 @@ import {
 export const useBacklogAuth = (onSave?: () => void, onError?: () => void) => {
   const [host, setHost] = useState<string>("");
   const [apiKey, setAPIKey] = useState<string>("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { setConfig } = useBacklog();
 
   // コンポーネントのマウント時に認証情報を取得
   useEffect(() => {
@@ -29,12 +30,10 @@ export const useBacklogAuth = (onSave?: () => void, onError?: () => void) => {
         // 認証可能かどうかを判定
         await getSpace(host, apiKey);
 
-        setHost(host);
-        setAPIKey(apiKey);
-        setIsLoggedIn(true);
+        setConfig?.({ host, apiKey });
       } catch (e) {
         console.error(e);
-        onError();
+        onError?.();
       }
     };
     initializeCredential();
@@ -44,10 +43,10 @@ export const useBacklogAuth = (onSave?: () => void, onError?: () => void) => {
   const save = async () => {
     try {
       await saveCredential(host, apiKey);
-      onSave();
+      onSave?.();
     } catch (e) {
       console.error(e);
-      onError();
+      onError?.();
     }
   };
 
@@ -55,9 +54,7 @@ export const useBacklogAuth = (onSave?: () => void, onError?: () => void) => {
   const clear = () => {
     try {
       clearCredential();
-      setHost("");
-      setAPIKey("");
-      setIsLoggedIn(false);
+      setConfig?.({ host: "", apiKey: "" });
     } catch (e) {
       console.error(e);
     }
@@ -67,7 +64,6 @@ export const useBacklogAuth = (onSave?: () => void, onError?: () => void) => {
   return {
     host,
     apiKey,
-    isLoggedIn,
     setHost,
     setAPIKey,
     save,

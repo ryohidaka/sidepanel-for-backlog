@@ -1,16 +1,27 @@
 import { Stack } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useBacklog } from "use-backlog";
 import ListHeader from "~components/IssueList/ListHeader";
 import MyIssueList from "~components/MyIssueList";
 import Splash from "~components/Splash";
-import { useBacklogAuth } from "~hooks";
+import { fetchCredential } from "~utils";
 
 function App() {
   // ログイン状態を取得
-  const { isLoggedIn } = useBacklogAuth();
+  const { backlog, setConfig } = useBacklog();
+
+  useEffect(() => {
+    const initializeCredential = async () => {
+      const { host, apiKey } = await fetchCredential();
+      if (!host || !apiKey) return;
+      setConfig?.({ host, apiKey });
+    };
+    initializeCredential();
+  }, []);
 
   return (
     <Stack w="xs">
-      {isLoggedIn ? (
+      {backlog ? (
         <>
           <ListHeader title="課題一覧" />
           <MyIssueList />

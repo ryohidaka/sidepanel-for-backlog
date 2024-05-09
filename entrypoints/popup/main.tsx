@@ -5,11 +5,14 @@ import App from "./App.tsx";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { customTheme } from "~utils/theme.ts";
+import { BacklogProvider } from "use-backlog";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ChakraProvider theme={customTheme}>
-      <App />
+      <BacklogProvider>
+        <App />
+      </BacklogProvider>
     </ChakraProvider>
   </React.StrictMode>,
 );

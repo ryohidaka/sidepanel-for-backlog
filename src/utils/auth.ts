@@ -1,5 +1,3 @@
-import * as backlogjs from "backlog-js";
-
 import { SecureStorage } from "@plasmohq/storage/secure";
 
 import {
@@ -35,7 +33,7 @@ export const saveCredential = async (host: string, apiKey: string) => {
     await storage.setPassword(STORAGE_PASSWORD);
     await storage.set(STORAGE_KEY_HOST, host);
     await storage.set(STORAGE_KEY_API_KEY, apiKey);
-  } catch (e) {
+  } catch (e: any) {
     throw new Error(e);
   }
 };
