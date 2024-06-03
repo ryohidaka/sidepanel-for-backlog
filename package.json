@@ -32,7 +32,7 @@
     "@plasmohq/storage": "^1.10.0",
     "backlog-js": "^0.13.1",
     "date-fns": "^3.6.0",
-    "framer-motion": "^11.2.6",
+    "framer-motion": "^11.2.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.10.2",
@@ -47,6 +47,6 @@
     "typescript": "^5.3.3",
     "vite-plugin-package-version": "^1.1.0",
     "vite-tsconfig-paths": "^4.3.2",
-    "wxt": "^0.18.3"
+    "wxt": "^0.18.4"
   }
 }
