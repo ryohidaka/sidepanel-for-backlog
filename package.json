@@ -47,6 +47,6 @@
     "typescript": "^5.3.3",
     "vite-plugin-package-version": "^1.1.0",
     "vite-tsconfig-paths": "^4.3.2",
-    "wxt": "^0.18.4"
+    "wxt": "^0.18.6"
   }
 }
