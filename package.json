@@ -27,12 +27,12 @@
   "homepage": "https://github.com/ryohidaka/sidepanel-for-backlog#readme",
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
     "@plasmohq/storage": "^1.11.0",
-    "backlog-js": "^0.13.2",
+    "backlog-js": "^0.13.3",
     "date-fns": "^3.6.0",
-    "framer-motion": "^11.3.2",
+    "framer-motion": "^11.3.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.13.0",
@@ -43,10 +43,10 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "husky": "^9.0.11",
+    "husky": "^9.1.1",
     "typescript": "^5.5.3",
     "vite-plugin-package-version": "^1.1.0",
     "vite-tsconfig-paths": "^4.3.2",
-    "wxt": "^0.18.14"
+    "wxt": "^0.18.15"
   }
 }
