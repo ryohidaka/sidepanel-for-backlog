@@ -6,16 +6,16 @@
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B6TVH92)
 
-ブラウザのサイドパネル(もしくはサイドバー)に、Backlogの課題一覧を表示できる拡張機能です。
+ブラウザのサイドパネル(もしくはサイドバー)に、Backlog の課題一覧を表示できる拡張機能です。
 
 ![サンプル画像](./docs/images/sample.png)
 
 ## 必要なもの
 
-- 使用するBacklogのホスト名
+- 使用する Backlog のホスト名
   - `{スペースID}.backlog.com` または `{スペースID}.backlog.jp`
-- APIキー
-  - Backlogの[APIの設定](https://support-ja.backlog.com/hc/ja/articles/360035641754-API%E3%81%AE%E8%A8%AD%E5%AE%9A)を参考にAPIキーを発行してください。
+- API キー
+  - Backlog の[API の設定](https://support-ja.backlog.com/hc/ja/articles/360035641754-API%E3%81%AE%E8%A8%AD%E5%AE%9A)を参考に API キーを発行してください。
 
 ## インストール
 
@@ -28,7 +28,7 @@
 
 ### 課題一覧表示
 
-Backlogの課題一覧をサイドパネルとポップアップに表示できます。
+Backlog の課題一覧をサイドパネルとポップアップに表示できます。
 
 ## アイコンについて
 
@@ -37,7 +37,7 @@ Backlogの課題一覧をサイドパネルとポップアップに表示でき�
 ## リンク
 
 - [更新履歴](./CHANGELOG.md)
-- [Backlog｜チームで使うプロジェクト管理・タスク管理ツール](https://backlog.com/ja/)
+- [Backlog ｜チームで使うプロジェクト管理・タスク管理ツール](https://backlog.com/ja/)
 - [Backlog API](https://developer.nulab.com/docs/backlog#)
 
 ## License
