@@ -13,8 +13,9 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      - name: Release Please
+        uses: googleapis/release-please-action@v4
         with:
           release-type: node
-          package-name: sidepanel-for-backlog
-          bump-minor-pre-major: true
+          config-file: .release-please-config.json
+          token: ${{ secrets.GITHUB_TOKEN }}
