@@ -1,6 +1,6 @@
 # SidePanel for Backlog
 
-[![release](https://badgen.net/github/release/ryohidaka/sidepanel-for-backlog)](https://github.com/ryohidaka/sidepanel-for-backlog/releases/)
+[![GitHub Release](https://img.shields.io/github/v/release/ryohidaka/sidepanel-for-backlog?logo=chromewebstore)](https://github.com/ryohidaka/sidepanel-for-backlog/releases/)
 ![build](https://github.com/ryohidaka/sidepanel-for-backlog/workflows/Build/badge.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
